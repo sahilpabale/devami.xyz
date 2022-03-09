@@ -1,6 +1,8 @@
+const { Router } = require("express");
+
 const router = (req, res) => {
   try {
-    res.send("resp");
+    const router = Router();
   } catch (error) {
     res.send("bruh");
   }

@@ -9,8 +9,8 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "./config/.env" });
 
 // uri of the database
-const PORT = process.env.PORT;
-const dbURI = process.env.DBURI.toString();
+const PORT = process.env.PORT || 8080;
+const dbURI = process.env.DB_URI.toString();
 
 mongoose
   .connect(dbURI, {
@@ -34,7 +34,7 @@ app.use(cors());
 // routes handlers
 
 // example:
-// app.use("/api/", require("./routes/rootHandler"))
+app.use("/api", require("./router.js"));
 
 // Handle unhandled promise rejections
 process.on("unhandledRejection", (err, promise) => {
